@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nafi Burger - Bole Arabsa, Addis Ababa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        // Custom Tailwind Config matching the user's cafe photo (Graffiti yellow/gold, vibrant green, deep charcoal)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FACC15',
+                            gold: '#EAB308',
+                            green: '#84CC16',
+                            darkGreen: '#15803D',
+                            dark: '#1C1917',
+                            charcoal: '#262626',
+                            cream: '#FAFAFA',
+                            accent: '#06B6D4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .graffiti-text {
+            text-shadow: 3px 3px 0px #1C1917, -2px -2px 0px #84CC16;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(28,25,23,0.92) 0%, rgba(38,38,38,0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-gold text-brand-dark text-xs sm:text-sm font-bold py-2 px-4 text-center flex justify-between items-center max-w-full overflow-hidden">
+        <div class="flex items-center gap-2 mx-auto">
+            <span class="bg-brand-dark text-brand-yellow px-2 py-0.5 rounded-full text-xs font-semibold">Open Daily</span>
+            <span>📍 Bole Arabsa, Addis Ababa 🇪🇹</span>
+            <span class="hidden sm:inline">|</span>
+            <span class="hidden sm:inline">🕒 Closes at 9:30 PM</span>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-brand-dark text-white shadow-lg border-b-4 border-brand-yellow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Title -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-brand-yellow rounded-full flex items-center justify-center text-brand-dark font-black text-2xl border-2 border-white shadow-md transform group-hover:rotate-12 transition">
+                        N
+                    </div>
+                    <div>
+                        <span class="text-2xl sm:text-3xl font-black tracking-wider text-brand-yellow uppercase graffiti-text block leading-none">NAFI</span>
+                        <span class="text-xs sm:text-sm tracking-widest text-brand-green font-bold uppercase block">BURGER & CAFE</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center space-x-6 font-semibold text-sm">
+                    <a href="#menu" class="hover:text-brand-yellow transition">Menu</a>
+                    <a href="#about" class="hover:text-brand-yellow transition">About Us</a>
+                    <a href="#reviews" class="hover:text-brand-yellow transition">Customer Reviews</a>
+                    <a href="#contact" class="hover:text-brand-yellow transition">Location & Hours</a>
+                    <a href="tel:0913209973" class="bg-brand-yellow hover:bg-brand-gold text-brand-dark font-bold px-4 py-2 rounded-full transition flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-phone"></i> 0913209973
+                    </a>
+                </div>
+
+                <!-- Mobile Call Button & Hamburger Toggle -->
+                <div class="flex items-center gap-3 md:hidden">
+                    <a href="tel:0913209973" class="bg-brand-yellow text-brand-dark font-bold px-3 py-1.5 rounded-full text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-phone"></i> Call
+                    </a>
+                    <button id="mobileMenuBtn" class="text-white text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-charcoal px-4 pt-2 pb-4 space-y-2 border-t border-gray-700">
+            <a href="#menu" class="block text-white py-2 font-medium hover:text-brand-yellow">Menu</a>
+            <a href="#about" class="block text-white py-2 font-medium hover:text-brand-yellow">About Us</a>
+            <a href="#reviews" class="block text-white py-2 font-medium hover:text-brand-yellow">Customer Reviews</a>
+            <a href="#contact" class="block text-white py-2 font-medium hover:text-brand-yellow">Location & Hours</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg text-white py-16 md:py-24 px-4 text-center relative border-b-8 border-brand-green">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <span class="inline-block bg-brand-green text-brand-dark px-4 py-1.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md">
+                Delicious Fast Food & Refreshing Drinks
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white uppercase">
+                Welcome to <span class="text-brand-yellow graffiti-text">Nafi Burger</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
+                Serving the finest Burgers, Pizza, Club Sandwiches, Shawarma, Fresh Juices, and Ethiopian Soft Drinks in Bole Arabsa, Addis Ababa!
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#menu" class="bg-brand-yellow hover:bg-brand-gold text-brand-dark font-black px-8 py-3.5 rounded-full text-base transition transform hover:scale-105 shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> Explore Full Menu
+                </a>
+                <a href="tel:0913209973" class="bg-transparent hover:bg-white/10 text-white font-bold px-8 py-3.5 rounded-full text-base border-2 border-white transition flex items-center gap-2">
+                    <i class="fa-solid fa-headset"></i> Order Now: 0913209973
+                </a>
+            </div>
+
+            <!-- Key Info Quick Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-8 max-w-3xl mx-auto text-left text-xs sm:text-sm">
+                <div class="bg-brand-dark/80 backdrop-blur border border-brand-yellow/30 p-3 rounded-xl flex items-center gap-3">
+                    <i class="fa-solid fa-location-dot text-brand-yellow text-xl"></i>
+                    <div>
+                        <p class="text-gray-400 font-medium">Location</p>
+                        <p class="font-bold text-white">Bole Arabsa</p>
+                    </div>
+                </div>
+                <div class="bg-brand-dark/80 backdrop-blur border border-brand-green/30 p-3 rounded-xl flex items-center gap-3">
+                    <i class="fa-solid fa-clock text-brand-green text-xl"></i>
+                    <div>
+                        <p class="text-gray-400 font-medium">Closing Time</p>
+                        <p class="font-bold text-white">9:30 PM Daily</p>
+                    </div>
+                </div>
+                <div class="bg-brand-dark/80 backdrop-blur border border-brand-yellow/30 p-3 rounded-xl flex items-center gap-3">
+                    <i class="fa-solid fa-phone text-brand-yellow text-xl"></i>
+                    <div>
+                        <p class="text-gray-400 font-medium">Phone</p>
+                        <p class="font-bold text-white">0913209973</p>
+                    </div>
+                </div>
+                <div class="bg-brand-dark/80 backdrop-blur border border-brand-green/30 p-3 rounded-xl flex items-center gap-3">
+                    <i class="fa-solid fa-flag text-brand-green text-xl"></i>
+                    <div>
+                        <p class="text-gray-400 font-medium">Country</p>
+                        <p class="font-bold text-white">Ethiopia 🇪🇹</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 px-4 max-w-7xl mx-auto w-full flex-grow">
+        <div class="text-center mb-10 space-y-2">
+            <h2 class="text-3xl sm:text-5xl font-black text-brand-dark uppercase">
+                Our Delicious <span class="text-brand-gold">Menu</span>
+            </h2>
+            <p class="text-gray-600 max-w-xl mx-auto text-sm sm:text-base">
+                Explore our extensive selection of fresh foods, wraps, pizzas, juices, and soft drinks.
+            </p>
+            <div class="w-24 h-1.5 bg-brand-yellow mx-auto rounded-full mt-2"></div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="categoryTabs">
+            <button onclick="filterMenu('all')" class="cat-btn active bg-brand-dark text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition shadow-sm hover:opacity-90">
+                All Items
+            </button>
+            <button onclick="filterMenu('burgers')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🍔 Burgers
+            </button>
+            <button onclick="filterMenu('pizza')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🍕 Pizza
+            </button>
+            <button onclick="filterMenu('club')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🥪 Club Sandwiches
+            </button>
+            <button onclick="filterMenu('shawarma')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🌯 Shawarma
+            </button>
+            <button onclick="filterMenu('mains')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🍟 Mains & Sides
+            </button>
+            <button onclick="filterMenu('juices')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🍹 Fresh Juices
+            </button>
+            <button onclick="filterMenu('softdrinks')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                🥤 Ethiopian Soft Drinks
+            </button>
+            <button onclick="filterMenu('hotcold')" class="cat-btn bg-white text-brand-dark font-semibold px-4 py-2 rounded-full text-xs sm:text-sm transition border border-gray-200 hover:bg-brand-yellow hover:border-brand-yellow">
+                ☕ Hot Drinks & Water
+            </button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Menu items will be injected by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Cafe Ambient / About Section -->
+    <section id="about" class="bg-brand-dark text-white py-16 px-4 border-t-4 border-brand-yellow">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="space-y-4">
+                <span class="text-brand-yellow font-bold text-sm tracking-wider uppercase">Welcome to Nafi Burger</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Cozy Atmosphere & Vibrant Urban Vibe</h2>
+                <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                    Located in the heart of Bole Arabsa, Nafi Burger offers a unique, colorful dining environment featuring custom graffiti artwork, comfy seating, and friendly Ethiopian hospitality.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="border border-gray-700 p-4 rounded-xl bg-brand-charcoal">
+                        <i class="fa-solid fa-couch text-brand-green text-2xl mb-2"></i>
+                        <h4 class="font-bold text-white">Comfortable Seating</h4>
+                        <p class="text-xs text-gray-400">Great environment for friends, couples, and family.</p>
+                    </div>
+                    <div class="border border-gray-700 p-4 rounded-xl bg-brand-charcoal">
+                        <i class="fa-solid fa-fire text-brand-yellow text-2xl mb-2"></i>
+                        <h4 class="font-bold text-white">Freshly Cooked</h4>
+                        <p class="text-xs text-gray-400">Made to order with fresh ingredients every time.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-yellow group">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" alt="Nafi Burger Cafe Interior" class="w-full h-80 object-cover transform group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <div>
+                        <p class="text-brand-yellow font-bold text-lg">Bole Arabsa's Favorite Fast Food Spot</p>
+                        <p class="text-xs text-gray-300">Visit us today or call 0913209973 for quick service!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews & Rating Section -->
+    <section id="reviews" class="py-16 px-4 max-w-6xl mx-auto w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark uppercase">
+                Customer <span class="text-brand-gold">Reviews & Ratings</span>
+            </h2>
+            <p class="text-gray-600 text-sm mt-1">See what our customers in Bole Arabsa have to say about Nafi Burger</p>
+            <div class="w-20 h-1 bg-brand-green mx-auto rounded-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Review Form -->
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                <h3 class="text-xl font-bold text-brand-dark mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-brand-gold"></i> Leave a Review
+                </h3>
+                <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Your Name</label>
+                        <input type="text" id="reviewerName" required placeholder="e.g. Abebe Bikila" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Rating</label>
+                        <div class="flex gap-2 text-2xl text-gray-300 cursor-pointer" id="starRatingInput">
+                            <i class="fa-solid fa-star hover:text-brand-yellow" onclick="setRating(1)"></i>
+                            <i class="fa-solid fa-star hover:text-brand-yellow" onclick="setRating(2)"></i>
+                            <i class="fa-solid fa-star hover:text-brand-yellow" onclick="setRating(3)"></i>
+                            <i class="fa-solid fa-star hover:text-brand-yellow" onclick="setRating(4)"></i>
+                            <i class="fa-solid fa-star hover:text-brand-yellow" onclick="setRating(5)"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Your Review</label>
+                        <textarea id="reviewerComment" rows="3" required placeholder="Write your feedback here..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-dark hover:bg-brand-charcoal text-brand-yellow font-bold py-3 rounded-xl transition shadow-md">
+                        Submit Review
+                    </button>
+                </form>
+            </div>
+
+            <!-- Reviews Display List -->
+            <div class="lg:col-span-2 space-y-4" id="reviewsContainer">
+                <!-- Javascript will inject initial & user reviews -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="bg-brand-charcoal text-white py-16 px-4 border-t-4 border-brand-green">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-yellow uppercase">Visit Us / Contact</h2>
+                <p class="text-gray-300 text-sm mt-1">We are ready to serve you tasty food and drinks daily!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <!-- Location -->
+                <div class="bg-brand-dark p-6 rounded-2xl border border-gray-700 space-y-3">
+                    <div class="w-12 h-12 bg-brand-yellow/20 text-brand-yellow rounded-full flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Our Location</h3>
+                    <p class="text-gray-300 text-sm">Addis Ababa, Bole Arabsa<br>Ethiopia 🇪🇹</p>
+                </div>
+
+                <!-- Phone -->
+                <div class="bg-brand-dark p-6 rounded-2xl border border-gray-700 space-y-3">
+                    <div class="w-12 h-12 bg-brand-green/20 text-brand-green rounded-full flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Phone & Orders</h3>
+                    <a href="tel:0913209973" class="text-brand-yellow text-xl font-extrabold block hover:underline">0913209973</a>
+                    <p class="text-gray-400 text-xs">Call us for orders or pickup queries</p>
+                </div>
+
+                <!-- Hours -->
+                <div class="bg-brand-dark p-6 rounded-2xl border border-gray-700 space-y-3">
+                    <div class="w-12 h-12 bg-brand-yellow/20 text-brand-yellow rounded-full flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Working Hours</h3>
+                    <p class="text-gray-300 text-sm">Open Every Day</p>
+                    <span class="inline-block bg-brand-green text-brand-dark px-3 py-1 rounded-full text-xs font-bold">Closing Time: 9:30 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-400 text-xs py-8 px-4 border-t border-gray-800 text-center space-y-2">
+        <p class="font-bold text-brand-yellow text-sm">NAFI BURGER & CAFE - BOLE ARABSA</p>
+        <p>© <span id="currentYear"></span> Nafi Burger. All Rights Reserved. Addis Ababa, Ethiopia 🇪🇹</p>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Set year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Comprehensive Food items database (Images placing BEFORE names, no prices included)
+        const menuItems = [
+            // BURGERS
+            {
+                name: "Nafi Special Double Burger",
+                category: "burgers",
+                img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop",
+                desc: "Double beef patty, double melted cheese, special Nafi burger sauce, lettuce, tomatoes, onion."
+            },
+            {
+                name: "Beef Burger",
+                category: "burgers",
+                img: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop",
+                desc: "Juicy prime beef patty served with fresh lettuce, tomatoes, onions, and signature house sauce."
+            },
+            {
+                name: "Cheese Burger",
+                category: "burgers",
+                img: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=600&auto=format&fit=crop",
+                desc: "Classic beef patty topped with rich melted cheese, pickles, lettuce, and creamy sauce."
+            },
+            {
+                name: "Egg Burger",
+                category: "burgers",
+                img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=600&auto=format&fit=crop",
+                desc: "Grilled beef patty topped with a fresh fried egg, melted cheese, and fresh veggies."
+            },
+            {
+                name: "Chicken Burger",
+                category: "burgers",
+                img: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?q=80&w=600&auto=format&fit=crop",
+                desc: "Crispy seasoned chicken fillet with lettuce, mayo, and pickles on a toasted bun."
+            },
+            {
+                name: "Veggie Burger",
+                category: "burgers",
+                img: "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?q=80&w=600&auto=format&fit=crop",
+                desc: "Flavorful vegetable & bean patty loaded with fresh lettuce, tomato, and garlic sauce."
+            },
+
+            // PIZZA
+            {
+                name: "Special Nafi Pizza",
+                category: "pizza",
+                img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop",
+                desc: "House special topped with seasoned beef, chicken, onions, green peppers, black olives & mozzarella."
+            },
+            {
+                name: "Beef Meat Lovers Pizza",
+                category: "pizza",
+                img: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=600&auto=format&fit=crop",
+                desc: "Generously layered with seasoned minced beef, tomato sauce, and rich melted cheese."
+            },
+            {
+                name: "Chicken Pizza",
+                category: "pizza",
+                img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop",
+                desc: "Tender grilled chicken pieces, sweet corn, bell peppers, mozzarella cheese, and pizza sauce."
+            },
+            {
+                name: "Margherita Pizza",
+                category: "pizza",
+                img: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=600&auto=format&fit=crop",
+                desc: "Classic Italian style pizza with rich tomato sauce, premium mozzarella cheese, and herbs."
+            },
+            {
+                name: "Tuna Pizza",
+                category: "pizza",
+                img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=600&auto=format&fit=crop",
+                desc: "Flaky tuna chunks, sliced onions, green chili, tomato sauce, and golden melted cheese."
+            },
+            {
+                name: "Vegetable Pizza",
+                category: "pizza",
+                img: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?q=80&w=600&auto=format&fit=crop",
+                desc: "Fresh bell peppers, onions, tomatoes, mushrooms, olives, and mozzarella cheese."
+            },
+
+            // CLUB SANDWICHES
+            {
+                name: "Special Nafi Club Sandwich",
+                category: "club",
+                img: "https://images.unsplash.com/photo-1567234669003-dce7a7a88821?q=80&w=600&auto=format&fit=crop",
+                desc: "Triple decker sandwich packed with grilled beef, chicken, egg, cheese, lettuce, tomato, mayo."
+            },
+            {
+                name: "Beef Club Sandwich",
+                category: "club",
+                img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop",
+                desc: "Layered toasted bread filled with seasoned beef, melted cheese, fresh tomato, and lettuce."
+            },
+            {
+                name: "Chicken Club Sandwich",
+                category: "club",
+                img: "https://images.unsplash.com/photo-1509722747041-616f39b57569?q=80&w=600&auto=format&fit=crop",
+                desc: "Tender shredded chicken breast, mayo sauce, lettuce, and fried egg served between toasted bread."
+            },
+            {
+                name: "Tuna Club Sandwich",
+                category: "club",
+                img: "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?q=80&w=600&auto=format&fit=crop",
+                desc: "Flaky tuna mix with mayo, onions, lettuce, and sliced tomatoes on golden crisp bread."
+            },
+
+            // SHAWARMA
+            {
+                name: "Beef Shawarma Wrap",
+                category: "shawarma",
+                img: "https://images.unsplash.com/photo-1662116765994-1e2238421882?q=80&w=600&auto=format&fit=crop",
+                desc: "Marinated spiced beef wrapped in pita bread with garlic sauce, onions, and fresh vegetables."
+            },
+            {
+                name: "Chicken Shawarma Wrap",
+                category: "shawarma",
+                img: "https://images.unsplash.com/photo-1561651823-34feb02250e4?q=80&w=600&auto=format&fit=crop",
+                desc: "Juicy grilled chicken, pickles, creamy garlic sauce, wrapped in warm pita bread."
+            },
+            {
+                name: "Mixed Shawarma Wrap",
+                category: "shawarma",
+                img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=600&auto=format&fit=crop",
+                desc: "Combination of beef and chicken shawarma meat loaded with house sauce and salad."
+            },
+
+            // MAINS & SIDES
+            {
+                name: "French Fries (Chips)",
+                category: "mains",
+                img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=600&auto=format&fit=crop",
+                desc: "Golden crispy fried potato chips served with ketchup and special dip sauce."
+            },
+            {
+                name: "Cheeseburger Fries",
+                category: "mains",
+                img: "https://images.unsplash.com/photo-1585109649139-366815a0d713?q=80&w=600&auto=format&fit=crop",
+                desc: "Loaded crispy fries topped with seasoned ground beef, melted cheddar cheese, and herbs."
+            },
+            {
+                name: "Spaghetti Bolognese",
+                category: "mains",
+                img: "https://images.unsplash.com/photo-1621996346565-e3d5d6281293?q=80&w=600&auto=format&fit=crop",
+                desc: "Classic pasta cooked with rich ground beef tomato sauce and sprinkled parmesan cheese."
+            },
+
+            // FRESH JUICES
+            {
+                name: "Mango Juice",
+                category: "juices",
+                img: "https://images.unsplash.com/photo-1546173159-315724a31696?q=80&w=600&auto=format&fit=crop",
+                desc: "100% pure thick fresh mango juice blend."
+            },
+            {
+                name: "Avocado Juice",
+                category: "juices",
+                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop",
+                desc: "Rich, creamy fresh avocado juice served with optional Vimto top."
+            },
+            {
+                name: "Spris (Mixed Layered Juice)",
+                category: "juices",
+                img: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=600&auto=format&fit=crop",
+                desc: "Traditional Ethiopian multi-layer juice combination of Avocado, Mango, and Papaya."
+            },
+            {
+                name: "Papaya Juice",
+                category: "juices",
+                img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=600&auto=format&fit=crop",
+                desc: "Fresh sweet papaya juice drink."
+            },
+            {
+                name: "Orange Juice",
+                category: "juices",
+                img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600&auto=format&fit=crop",
+                desc: "Freshly squeezed natural orange juice."
+            },
+
+            // ETHIOPIAN SOFT DRINKS
+            {
+                name: "Sprite",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?q=80&w=600&auto=format&fit=crop",
+                desc: "Refreshing lemon-lime sparkling cold soft drink."
+            },
+            {
+                name: "Coca-Cola",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1554866585-cd94860890b7?q=80&w=600&auto=format&fit=crop",
+                desc: "Classic ice-cold Coca-Cola bottle."
+            },
+            {
+                name: "Pepsi",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?q=80&w=600&auto=format&fit=crop",
+                desc: "Cold crisp Pepsi soft drink."
+            },
+            {
+                name: "Mirinda Orange",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=600&auto=format&fit=crop",
+                desc: "Fruity orange sparkling soft drink popular across Ethiopia."
+            },
+            {
+                name: "Fanta Orange",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?q=80&w=600&auto=format&fit=crop",
+                desc: "Refreshing bubbly orange soda."
+            },
+            {
+                name: "Ambo Mineral Water (Sparkling)",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1560023907-5f339617ea30?q=80&w=600&auto=format&fit=crop",
+                desc: "Ethiopia's iconic natural sparkling mineral water bottle."
+            },
+            {
+                name: "St. George Apple Soft Drink",
+                category: "softdrinks",
+                img: "https://images.unsplash.com/photo-1527960471264-932f39eb5846?q=80&w=600&auto=format&fit=crop",
+                desc: "Popular Ethiopian crisp apple flavored non-alcoholic beverage."
+            },
+
+            // HOT & COLD BEVERAGES
+            {
+                name: "Still Mineral Water",
+                category: "hotcold",
+                img: "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?q=80&w=600&auto=format&fit=crop",
+                desc: "Purified drinking bottled water (0.5L / 1L / 2L)."
+            },
+            {
+                name: "Ethiopian Macchiato",
+                category: "hotcold",
+                img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=600&auto=format&fit=crop",
+                desc: "Traditional rich Ethiopian coffee macchiato with velvety steamed milk."
+            },
+            {
+                name: "Black Coffee / Espresso",
+                category: "hotcold",
+                img: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=600&auto=format&fit=crop",
+                desc: "Authentic roasted Ethiopian dark coffee espresso shot."
+            },
+            {
+                name: "Black Tea / Milk Tea",
+                category: "hotcold",
+                img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=600&auto=format&fit=crop",
+                desc: "Hot brewed tea spiced with cinnamon and cardamom."
+            }
+        ];
+
+        // Render Menu Items
+        function renderMenu(items) {
+            const container = document.getElementById('menuGrid');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col group";
+                
+                // Requirement: Picture of the food BEFORE the name
+                card.innerHTML = `
+                    <div class="relative h-48 w-full overflow-hidden bg-gray-100">
+                        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" onerror="this.src='https://placehold.co/600x400/262626/FACC15?text=${encodeURIComponent(item.name)}'">
+                        <div class="absolute top-3 left-3 bg-brand-dark/80 text-brand-yellow text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur">
+                            Nafi Cafe
+                        </div>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-extrabold text-brand-dark group-hover:text-brand-gold transition mb-1">${item.name}</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed mb-4">${item.desc}</p>
+                        </div>
+                        <div class="pt-2 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-brand-darkGreen flex items-center gap-1">
+                                <i class="fa-solid fa-circle-check"></i> Available Now
+                            </span>
+                            <a href="tel:0913209973" class="bg-brand-yellow hover:bg-brand-gold text-brand-dark font-bold text-xs px-3 py-1.5 rounded-lg transition flex items-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-phone"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Functionality
+        function filterMenu(category) {
+            // Update active tab buttons
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-dark', 'text-white', 'active');
+                btn.classList.add('bg-white', 'text-brand-dark');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-brand-dark');
+            event.currentTarget.classList.add('bg-brand-dark', 'text-white', 'active');
+
+            if(category === 'all') {
+                renderMenu(menuItems);
+            } else {
+                const filtered = menuItems.filter(i => i.category === category);
+                renderMenu(filtered);
+            }
+        }
+
+        // Customer Reviews State
+        let currentSelectedStars = 5;
+        let reviews = [
+            {
+                name: "Dawit Yohannes",
+                rating: 5,
+                comment: "Best burgers in Bole Arabsa! The double cheese burger is super juicy and fresh. Great atmosphere too!",
+                date: "2 days ago"
+            },
+            {
+                name: "Saba Tefera",
+                rating: 5,
+                comment: "Love their fresh avocado-mango spris juice and chicken club sandwich. Perfect spot to relax with friends.",
+                date: "1 week ago"
+            },
+            {
+                name: "MULUGETA B.",
+                rating: 5,
+                comment: "Cold Ambo water with the beef shawarma wrap is amazing. Quick service and nice local cafe wall art!",
+                date: "2 weeks ago"
+            }
+        ];
+
+        // Star Selection in Form
+        function setRating(rating) {
+            currentSelectedStars = rating;
+            const stars = document.getElementById('starRatingInput').children;
+            for(let i = 0; i < 5; i++) {
+                if(i < rating) {
+                    stars[i].classList.remove('text-gray-300');
+                    stars[i].classList.add('text-brand-yellow');
+                } else {
+                    stars[i].classList.remove('text-brand-yellow');
+                    stars[i].classList.add('text-gray-300');
+                }
+            }
+        }
+
+        // Render Reviews List
+        function renderReviews() {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            reviews.forEach(r => {
+                let starHtml = '';
+                for(let i = 1; i <= 5; i++) {
+                    if(i <= r.rating) {
+                        starHtml += `<i class="fa-solid fa-star text-brand-yellow text-sm"></i>`;
+                    } else {
+                        starHtml += `<i class="fa-regular fa-star text-gray-300 text-sm"></i>`;
+                    }
+                }
+
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-bold text-brand-dark">${r.name}</h4>
+                            <span class="text-xs text-gray-400">${r.date}</span>
+                        </div>
+                        <div class="flex gap-1 mb-2">${starHtml}</div>
+                        <p class="text-gray-600 text-sm leading-relaxed">"${r.comment}"</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Submit Review Handler
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewerName').value;
+            const comment = document.getElementById('reviewerComment').value;
+
+            if(!name || !comment) return;
+
+            const newReview = {
+                name: name,
+                rating: currentSelectedStars,
+                comment: comment,
+                date: "Just now"
+            };
+
+            reviews.unshift(newReview);
+            renderReviews();
+
+            // Reset Form
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewerComment').value = '';
+            setRating(5);
+
+            alert("Thank you! Your review for Nafi Burger has been submitted successfully.");
+        }
+
+        // Initialize Page
+        window.onload = function() {
+            renderMenu(menuItems);
+            renderReviews();
+            setRating(5);
+        };
+    </script>
+</body>
+</html>
